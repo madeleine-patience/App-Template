@@ -23,12 +23,21 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cors())
 
+app.get('/', async(request,response)=>{
+    try{
+        response.render('index.ejs')
+    }
+
+    catch{
+        response.status(500).send({message:error.message})
+    }
+
+
+}
 
 
 
-
-
-
+)
 
 app.listen(process.env.PORT||PORT, ()=> {
     console.log( console.log(`Server is running. WOOO!}`))
